@@ -1,0 +1,17 @@
+import sqlite3
+conn = sqlite3.connect("q1.db")
+cursor=conn.cursor()
+#conn.execute("DROP TABLE prg")
+conn.execute('''CREATE TABLE IF NOT EXISTS prg(program_language varchar,duration int,consultancy text);''')
+conn.execute("INSERT INTO prg VALUES('Python','2','abc');")
+conn.execute("INSERT INTO prg VALUES('c',3,'xyz');")
+conn.execute("INSERT INTO prg VALUES('JAVA',5,'qwe');")
+
+cursor.execute("SELECT * from prg")
+#cursor.execute("SELECT * FROM prg LIMIT 2")
+#result = cursor.fetchone()
+result=cursor.fetchall()
+
+print(result)
+
+
